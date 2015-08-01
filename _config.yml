@@ -1,0 +1,18 @@
+# Site settings
+title: 500LPs
+email: shaunalynn@thesprouts.org
+description: > # this means to ignore newlines until "baseurl:"
+  for AR from KP & SD: 500 lps which reveal themselves with further listening  
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: 
+github_username:  
+
+# Build settings
+markdown: kramdown
+
+# LPs collection
+collections:
+  lps:
+    output: true
+
