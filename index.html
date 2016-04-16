@@ -4,11 +4,15 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Records</h1>
+  <h1 class="page-heading"></h1>
 
     <ul class="lp-listing">
-      {% for lp in site.lps %}
-        <a href="{{ lp.url }}"><li>{{ lp.artist }}</li></a>
+      {% for person in site.people %}
+        <a href="{{ person.url }}">
+        <div style="background-image:url({{ person.img }});" class="animation">
+           <span>{{ person.name }}</span>
+        </div>
+        </a>
       {% endfor %}
     </ul>
 
