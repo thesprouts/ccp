@@ -8,7 +8,7 @@ layout: default
 
     <ul class="lp-listing">
       {% for person in site.people %}
-        <a href="{{ person.url }}">
+        <a href="{{ person.url | prepend: site.baseurl }}">
         <div style="background-image:url({{ person.img }});" class="animation">
            <span>{{ person.name }}</span>
         </div>
