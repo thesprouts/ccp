@@ -1,6 +1,7 @@
----
+--- 
 layout: default
 ---
+
 <div class="home">
     <h1 class="page-heading"></h1>
     <ul class="animation-listing">
@@ -16,15 +17,13 @@ layout: default
         {% endfor %}
     </ul>
     <script>
-    var sounds = Array.from(document.querySelector('.sound'));
+    var sounds = Array.from(document.querySelectorAll('.sound'));
     sounds.forEach(function(sound) {
         sound.parentElement.addEventListener('mouseover', function() {
-            console.log("Trying to play", sound);
             sound.play();
         });
 
         sound.parentElement.addEventListener('mouseout', function() {
-            console.log("Trying to pause", sound);
             sound.pause();
         });
     });
