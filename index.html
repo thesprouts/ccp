@@ -19,10 +19,12 @@ layout: default
     var sounds = Array.from(document.querySelector('.sound'));
     sounds.forEach(function(sound) {
         sound.parentElement.addEventListener('mouseover', function() {
+            console.log("Trying to play", sound);
             sound.play();
         });
 
         sound.parentElement.addEventListener('mouseout', function() {
+            console.log("Trying to pause", sound);
             sound.pause();
         });
     });
