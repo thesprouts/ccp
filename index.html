@@ -11,26 +11,23 @@ layout: default
         <a href="{{ site.baseurl }}{{ person.url }}">
         <div style="background:url({{ person.img }}) center; background-size: cover" class="animation">
         <span>{{ person.name }}</span>
-        {% if person.audio %}<audio class="audioEl"><source src="{{person.audio}}"></source></audio>{% endif %}
+        {% if person.audio %}<audio class="sound" preload><source src="{{person.audio}}"></source></audio>{% endif %}
         </div>
         </a>
       {% endfor %}
     </ul>
 
   <script>
-  var audios = document.getElementsByClassName('audioEl');
-  // console.log(audios);
-  for (var i; i<audios.length; i++) {
-    var currAudio = audios[i];
-
-    currAudio.parentElement.addEventListener('mouseover', function() {
-      currAudio.play();
+  var sounds = Array.from(document.querySelector('.sound'));
+  sounds.forEach(function(sound) {
+    sound.parentElement.addEventListener('mouseover', function() {
+      sound.play();
     });
     
-    currAudio.parentElement.addEventListener('mouseout', function() {
-      currAudio.pause();
+    sound.parentElement.addEventListener('mouseout', function() {
+      sound.pause();
     });
-  };
+  });
 
 
   </script>
