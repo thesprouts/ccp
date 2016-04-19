@@ -14,5 +14,6 @@ markdown: kramdown
 
 # LPs collection
 collections:
-  - people
+  people:
+    output: true
 
