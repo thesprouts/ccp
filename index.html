@@ -3,36 +3,34 @@ layout: default
 ---
 
 <div class="home">
-
-  <h1 class="page-heading"></h1>
-
+    <h1 class="page-heading"></h1>
     <ul class="animation-listing">
-      {% for person in site.people %}
-        <a href="{{ site.baseurl }}{{ person.url }}">
-        <div style="background:url({{ person.img }}) center; background-size: cover" class="animation">
-        <span>{{ person.name }}</span>
-        {% if person.audio %}<audio class="sound" preload><source src="{{person.audio}}"></source></audio>{% endif %}
-        </div>
-        </a>
-      {% endfor %}
+        {% for person in site.people %}
+        <li style='list-style-type: none; display: inline-block;'>
+            <a href="{{ site.baseurl }}{{ person.url }}">
+                <div style="background:url({{ person.img }}) center; background-size: cover" class="animation">
+                    <span>{{ person.name }}</span> {% if person.audio %}
+                    <audio class="sound" preload>
+                        <source src="{{person.audio}}"></source>
+                    </audio>{% endif %}
+                </div>
+            </a>
+        </li>
+        {% endfor %}
     </ul>
+    <script>
+    var sounds = Array.from(document.querySelector('.sound'));
+    sounds.forEach(function(sound) {
+        sound.parentElement.addEventListener('mouseover', function() {
+            sound.play();
+        });
 
-  <script>
-  var sounds = Array.from(document.querySelector('.sound'));
-  sounds.forEach(function(sound) {
-    sound.parentElement.addEventListener('mouseover', function() {
-      sound.play();
+        sound.parentElement.addEventListener('mouseout', function() {
+            sound.pause();
+        });
     });
-    
-    sound.parentElement.addEventListener('mouseout', function() {
-      sound.pause();
-    });
-  });
-
-
-  </script>
-
-<!--   <ul class="post-list">
+    </script>
+    <!--   <ul class="post-list">
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -45,5 +43,4 @@ layout: default
   </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
-
 </div>
