@@ -6,15 +6,34 @@ layout: default
 
   <h1 class="page-heading"></h1>
 
-    <ul class="lp-listing">
+    <ul class="animation-listing">
       {% for person in site.people %}
         <a href="{{ person.url | prepend: site.baseurl }}">
-        <div style="background:url({{ person.img }}) center;" class="animation">
+        <div style="background:url({{ person.img }}) center;" {% if person.audio %}onclick="play()"{% endif %} class="animation">
            <span>{{ person.name }}</span>
+           {% if person.audio %}<audio class="audioEl"><source src="{{person.audio}}"></source></audio>{% endif %}
         </div>
         </a>
       {% endfor %}
     </ul>
+
+  <script>
+  var audios = document.getElementsByClassName('audioEl');
+  // console.log(audios);
+  for (var i; i<audios.length; i++) {
+    var currAudio = audios[i];
+
+    currAudio.parentElement.addEventListener('mouseover', function() {
+      currAudio.play();
+    });
+    
+    currAudio.parentElement.addEventListener('mouseout', function() {
+      currAudio.pause();
+    });
+  };
+
+
+  </script>
 
 <!--   <ul class="post-list">
     {% for post in site.posts %}

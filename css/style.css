@@ -129,8 +129,8 @@ pre {
 .animation {
   position:relative;
   height:300px;
-  width:30%;
-  margin:5px;
+  width:330px;
+  margin:1px;
   border:1px solid black;
   display:inline-block;
   background-size:contain;
