@@ -8,10 +8,10 @@ layout: default
 
     <ul class="animation-listing">
       {% for person in site.people %}
-        <a href="{{ person.url | prepend: site.baseurl }}">
-        <div style="background:url({{ person.img }}) center;" {% if person.audio %}onclick="play()"{% endif %} class="animation">
-           <span>{{ person.name }}</span>
-           {% if person.audio %}<audio class="audioEl"><source src="{{person.audio}}"></source></audio>{% endif %}
+        <a href="{{ site.baseurl }}{{ person.url }}">
+        <div style="background:url({{ person.img }}) center; background-size: cover" class="animation">
+        <span>{{ person.name }}</span>
+        {% if person.audio %}<audio class="audioEl"><source src="{{person.audio}}"></source></audio>{% endif %}
         </div>
         </a>
       {% endfor %}

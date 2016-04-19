@@ -3,8 +3,13 @@ title: creative computer programming
 email: us@thesprouts.org
 description: > # this means to ignore newlines until "baseurl:"
    
+<<<<<<< HEAD
 # baseurl: "/ccp/" # the subpath of your site, e.g. /blog/
 url: "/ccp/" # the base hostname & protocol for your site
+=======
+baseurl: "/ccp" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
+>>>>>>> d8b3a10b09d10a5f085a090388f9cac5962af364
 twitter_username: 
 github_username:  
 
