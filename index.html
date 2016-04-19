@@ -1,41 +1,33 @@
 ---
 layout: default
 ---
-
 <div class="home">
-
-  <h1 class="page-heading"></h1>
-
+    <h1 class="page-heading"></h1>
     <ul class="animation-listing">
-      {% for person in site.people %}
+        {% for person in site.people %}
         <a href="{{ site.baseurl }}{{ person.url }}">
-        <div style="background:url({{ person.img }}) center; background-size: cover" class="animation">
-        <span>{{ person.name }}</span>
-        {% if person.audio %}<audio class="audioEl"><source src="{{person.audio}}"></source></audio>{% endif %}
-        </div>
+            <div style="background:url({{ person.img }}) center; background-size: cover" class="animation">
+                <span>{{ person.name }}</span> {% if person.audio %}
+                <audio class="sound" preload>
+                    <source src="{{person.audio}}"></source>
+                </audio>{% endif %}
+            </div>
         </a>
-      {% endfor %}
+        {% endfor %}
     </ul>
+    <script>
+    var sounds = Array.from(document.querySelector('.sound'));
+    sounds.forEach(function(sound) {
+        sound.parentElement.addEventListener('mouseover', function() {
+            sound.play();
+        });
 
-  <script>
-  var audios = document.getElementsByClassName('audioEl');
-  // console.log(audios);
-  for (var i; i<audios.length; i++) {
-    var currAudio = audios[i];
-
-    currAudio.parentElement.addEventListener('mouseover', function() {
-      currAudio.play();
+        sound.parentElement.addEventListener('mouseout', function() {
+            sound.pause();
+        });
     });
-    
-    currAudio.parentElement.addEventListener('mouseout', function() {
-      currAudio.pause();
-    });
-  };
-
-
-  </script>
-
-<!--   <ul class="post-list">
+    </script>
+    <!--   <ul class="post-list">
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -48,5 +40,4 @@ layout: default
   </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
-
 </div>
